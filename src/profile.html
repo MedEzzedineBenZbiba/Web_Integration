@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier Garage</title>
+    <meta name="description" content="Trouvez le meilleur service pour votre véhicule" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'workshop-blue': '#3b5ba9',
+              'workshop-gray': '#EEE5E9',
+              'workshop-lightgray': '#fafafa',
+              'workshop-darkgray': '#777777',
+            },
+            boxShadow: {
+              'card': '0 2px 8px rgba(0, 0, 0, 0.05)',
+            },
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .container-custom {
+          @apply w-full px-4 mx-auto max-w-7xl;
+        }
+        
+        .transition-custom {
+          @apply transition-all duration-300 ease-in-out;
+        }
+        
+        .card-workshop {
+          @apply bg-white rounded-lg shadow-card border border-gray-100 overflow-hidden transition-custom;
+        }
+        
+        .search-input {
+          @apply w-full p-2 text-sm rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-workshop-blue/20 transition-custom;
+        }
+
+        .animate-fade-up {
+          animation: fadeUp 0.4s ease-out;
+        }
+
+        .animate-fade-in {
+          animation: fadeIn 0.3s ease-out;
+        }
+      }
+
+      @keyframes fadeUp {
+        0% { 
+          opacity: 0; 
+          transform: translateY(10px);
+        }
+        100% { 
+          opacity: 1; 
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% { 
+          opacity: 0;
+        }
+        100% { 
+          opacity: 1;
+        }
+      }
+
+      .glass-card {
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .smooth-transition {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-workshop-lightgray">
+  <!-- Header/Navbar -->
+  <header class="w-full border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50 transition-all">
+    <div class="container flex h-16 items-center justify-between px-4 md:px-6 mx-auto">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class=" bg-app-white p-1 w-16 h-16"> 
+              <img 
+                src="../assets/483227670_1349136749762957_5523333039824855518_n.png"
+                alt=""
+                class="w-full h-full object-cover rounded-full"
+              >
+            </div>
+          <span class="font-semibold text-app-blue text-workshop-blue">DiagExpress</span>
+          
+        </a>
+      </div>
+      
+      <nav id="menu" class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="font-medium transition-colors hover:text-app-blue text-workshop-blue">
+          Accueil
+        </a>
+        <a href="services.html" class="font-medium transition-colors hover:text-app-blue text-workshop-blue">
+          Services
+        </a>
+        <a href="workshops.html" class="font-medium transition-colors hover:text-app-blue text-workshop-blue">
+          Workshops
+        </a>
+        <a href="blog.html" class="font-medium transition-colors hover:text-app-blue text-workshop-blue">
+          Blog
+        </a>
+      </nav>
+      
+      <div class="flex items-center gap-4">
+        <button class="h-9 rounded-full px-3 bg-app-blue  text-white inline-flex items-center justify-center text-sm font-medium bg-blue-800">
+          GET STARTED
+        </button>
+        <button class="h-9 rounded-full px-3 bg-app-blue  text-white inline-flex items-center justify-center text-sm font-medium bg-blue-800" onclick="window.location.href='./userLogin.html'">
+            LogOut
+          </button>
+        
+        <button id="menu-toggle" class="rounded-full border p-2 md:hidden">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <span class="sr-only">Toggle menu</span>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden px-4 py-3 bg-app-light-pink/50 border-b transition-all">
+      <ul class="space-y-2">
+        <li>
+          <a href="index.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md ">
+            Accueil
+          </a>
+        </li>
+        <li>
+          <a href="services.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
+            Services
+          </a>
+        </li>
+        <li>
+          <a href="workshops.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
+            Workshops
+          </a>
+        </li>
+        <li>
+          <a href="blog.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
+            Blog
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+  
+  <!-- Hero Section with Search -->
+  <section class="relative">
+    <div class="h-[300px] w-full overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+          <img 
+            src="../assets/482376767_2749412575259941_3061229840499673304_n.png"
+            alt="Car diagnostics" 
+            class="object-cover w-full h-full"
+          />
+        </div>
+      </div>
+    <!-- Search Filter -->
+    <div class="w-full max-w-4xl mx-auto -mt-6 relative z-10 animate-fade-in">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x">
+          <div class="p-4">
+            <div class="text-xs font-medium text-gray-500 mb-1">LOCATION</div>
+            <div class="flex items-center">
+              <input
+                type="text"
+                placeholder="Atlanta"
+                class="w-full border-none bg-transparent text-sm focus:outline-none"
+                value="Atlanta"
+              />
+            </div>
+          </div>
+
+          <div class="p-4">
+            <div class="text-xs font-medium text-gray-500 mb-1">DATE</div>
+            <div class="flex items-center">
+              <input
+                type="text"
+                placeholder="DD/MM/YYYY"
+                class="w-full border-none bg-transparent text-sm focus:outline-none"
+                value="20/10/2023"
+              />
+            </div>
+          </div>
+
+          <div class="p-4">
+            <div class="text-xs font-medium text-gray-500 mb-1">RANGE</div>
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-gray-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 3H9L5 8.99M15 3L19 8.99M15 3V8.99H19M5 8.99H9M5 8.99L7 12M19 8.99L17 12M9 8.99H15M9 8.99V12M15 8.99V12M7 12V18.98H17V12M7 12H9M17 12H15M9 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <input
+                type="text"
+                placeholder="BMW"
+                class="w-full border-none bg-transparent text-sm focus:outline-none"
+                value="BMW"
+              />
+            </div>
+          </div>
+
+          <div class="p-4 flex items-center justify-center bg-white">
+            <button class="bg-app-blue bg-blue-800 text-white w-full md:w-auto h-10 px-4 py-2 rounded-md inline-flex items-center justify-center gap-2">
+              Find service
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+    <main class="flex-1">
+
+
+      
+      <div class="container-custom max-w-3xl mx-auto pt-2 pb-8">
+        <!-- User Profile -->
+        <section class="px-4 md:px-6 pt-6 animate-fade-up" style="animation-delay: 100ms;">
+          <div class="flex items-start gap-2 mb-3">
+            <div class="flex items-center justify-center w-6 h-6  rounded-sm">
+              <span class=" text-sm w-50">≡</span>
+            </div>
+            <h2 class="text-md font-bold text-gray-800">User Details :</h2>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-card border border-gray-100 p-4">
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+              <div class="relative w-20 h-20 sm:w-24 sm:h-24 bg-gray-200 rounded-full overflow-hidden">
+                <!-- User avatar placeholder -->
+                <div class="absolute inset-0 bg-gray-300 ">
+                    <img src="../assets/OIP.jpg" alt="">
+                </div>
+              </div>
+              
+              <div class="flex-1 space-y-3">
+                <div class="flex items-start gap-2">
+                  <div class="w-5 h-5 mt-0.5">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Full Name :</p>
+                    <p class="text-sm font-medium">Mohamed Ben Kilani</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-2">
+                  <div class="w-5 h-5 mt-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Email :</p>
+                    <p class="text-sm font-medium">med17@gmail.com</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-2">
+                  <div class="w-5 h-5 mt-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Address :</p>
+                    <p class="text-sm font-medium">Gbaes , 6001</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start gap-2">
+                  <div class="w-5 h-5 mt-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Number :</p>
+                    <p class="text-sm font-medium">+216 50336687</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Workshop in Progress -->
+        <section class="px-4 md:px-6 py-4 animate-fade-up" style="animation-delay: 200ms;">
+          <div class="border-t border-gray-200 pt-4">
+            <h2 class="text-md font-bold text-gray-800 mb-3">Workshop in progress</h2>
+            
+            <div class="bg-workshop-gray rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+              <div class="p-4">
+                <p class="text-sm text-gray-700 mb-3">
+                  Your vehicle Toyota Corolla 2020 is currently being worked on at Electrical Hub. Our team is performing: Service Type, brake repair, oil change...
+                </p>
+                
+                <div 
+                  class="flex items-center justify-center cursor-pointer text-workshop-blue"
+                  id="workshop-progress-toggle"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" id="chevron-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" id="chevron-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 hidden">
+                    <path d="m18 15-6-6-6 6"></path>
+                  </svg>
+                </div>
+              </div>
+              
+              <div id="workshop-progress-details" class="bg-white p-4 border-t border-gray-200 animate-fade-in hidden">
+                <p class="text-sm text-gray-700">Additional details about the workshop service...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Workshop History -->
+        <section class="px-4 md:px-6 pb-6 animate-fade-up" style="animation-delay: 300ms;">
+          <div class="pt-2">
+            <h2 class="text-md font-bold text-gray-800 mb-3">Workshop History</h2>
+            
+            <div class="bg-workshop-gray rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+              <div class="p-4">
+                <div class="flex items-start">
+                  <div class="flex-1">
+                    <p class="text-sm font-medium">Service Type: Oil Change</p>
+                    <p class="text-sm text-gray-700 mt-2">Details:</p>
+                    <ul class="text-sm text-gray-700 list-disc pl-5 mt-1">
+                      <li>Changed engine oil and oil filter</li>
+                      <li>Checked fluid levels (brake fluid, coolant, windshield washer)</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="ml-4">
+                    <div class="bg-white rounded-lg border border-gray-200 p-2 w-20 h-20 flex flex-col items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-green-500">
+                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                        <line x1="16" x2="16" y1="2" y2="6"></line>
+                        <line x1="8" x2="8" y1="2" y2="6"></line>
+                        <line x1="3" x2="21" y1="10" y2="10"></line>
+                      </svg>
+                      <div class="text-xs text-center mt-1 text-gray-600">Service History</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div 
+                  class="flex items-center justify-center cursor-pointer text-workshop-blue mt-2"
+                  id="workshop-history-toggle"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" id="history-chevron-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                    <path d="m6 9 6 6 6-6"></path>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" id="history-chevron-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 hidden">
+                    <path d="m18 15-6-6-6 6"></path>
+                  </svg>
+                </div>
+              </div>
+              
+              <div id="workshop-history-details" class="bg-white p-4 border-t border-gray-200 animate-fade-in hidden">
+                <p class="text-sm text-gray-700">Additional details about the workshop history...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!-- Footer -->
+   <!-- Footer -->
+   <footer class="bg-white border-t py-6 mt-10">
+    <div class="container px-4 md:px-6 mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p class="text-xs text-gray-500">
+            Providing accurate and reliable diagnostic services for your Car.
+          </p>
+          <p class="text-xs text-gray-500 mt-1">
+            © Autocheck 2023. All Rights Reserved.
+          </p>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <div class="flex space-x-2">
+            <a href="https://apps.apple.com" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center bg-black text-white rounded-md px-3 py-1 text-xs">
+              <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.94 5.19A4.38 4.38 0 0 0 16 2a4.44 4.44 0 0 0-3 1.52 4.17 4.17 0 0 0-1 3.09 3.69 3.69 0 0 0 2.94-1.42z"/>
+                <path d="M17.46 8.06A4.05 4.05 0 0 0 15 6.64a4.08 4.08 0 0 0-2.45 1.18c-.74.66-1.1 1.77-1.1 2.68s.38 2.07 1.1 2.7a4.35 4.35 0 0 0 2.45 1.23 4.05 4.05 0 0 0 2.46-1.23c.72-.63 1.1-1.74 1.1-2.7a3.59 3.59 0 0 0-1.1-2.44z"/>
+              </svg>
+              Apple Store
+            </a>
+            
+            <a href="https://play.google.com" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center bg-black text-white rounded-md px-3 py-1 text-xs">
+              <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L4 12l8 10 8-10z"/>
+              </svg>
+              Google Play
+            </a>
+          </div>
+          
+          <div class="flex space-x-2">
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" class="text-gray-500 hover:text-gray-700">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753c-.002-.249 1.51-2.772 1.818-4.013z"/>
+              </svg>
+            </a>
+            
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" class="text-gray-500 hover:text-gray-700">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+              </svg>
+            </a>
+            
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="text-gray-500 hover:text-gray-700">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2z"/>
+                <path d="M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-10.667a6.667 6.667 0 1 0 0 13.334 6.667 6.667 0 0 0 0-13.334zM18.5 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script>
+      // Toggle Workshop Progress Details
+      document.getElementById('workshop-progress-toggle').addEventListener('click', function() {
+        const detailsElement = document.getElementById('workshop-progress-details');
+        const chevronDown = document.getElementById('chevron-down');
+        const chevronUp = document.getElementById('chevron-up');
+        
+        detailsElement.classList.toggle('hidden');
+        chevronDown.classList.toggle('hidden');
+        chevronUp.classList.toggle('hidden');
+      });
+      
+      // Toggle Workshop History Details
+      document.getElementById('workshop-history-toggle').addEventListener('click', function() {
+        const detailsElement = document.getElementById('workshop-history-details');
+        const chevronDown = document.getElementById('history-chevron-down');
+        const chevronUp = document.getElementById('history-chevron-up');
+        
+        detailsElement.classList.toggle('hidden');
+        chevronDown.classList.toggle('hidden');
+        chevronUp.classList.toggle('hidden');
+      });
+      
+      // Add animation delay to elements with animation
+      document.addEventListener('DOMContentLoaded', function() {
+        const elements = document.querySelectorAll('.animate-fade-up, .animate-fade-in');
+        elements.forEach((el, index) => {
+          if (!el.style.animationDelay) {
+            el.style.animationDelay = `${index * 100}ms`;
+          }
+        });
+      });
+    </script>
+
+<script>
+  
+    document.addEventListener('DOMContentLoaded', function() {
+                const menuToggle = document.getElementById('menu-toggle');
+                const mobileMenu = document.getElementById('mobile-menu');
+     
+     
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            });
+    </script>
+
+  </body>
+</html>
