@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiagExpress</title>
+    <link rel="shortcut icon" href="../assets/483227670_1349136749762957_5523333039824855518_n.png" >
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'app-blue': '#1e40af',
+              'app-red': '#e11d48',
+              'app-light-pink': '#fef2f2',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.4s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .service-card {
+          @apply relative flex flex-col items-center justify-center bg-app-light-pink rounded-lg p-4 overflow-hidden transition-all hover:shadow-md;
+          min-height: 120px;
+        }
+        .service-icon {
+          @apply flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-app-red;
+        }
+        .pagination-item {
+          @apply flex items-center justify-center w-8 h-8 rounded-md border text-sm cursor-pointer transition-colors;
+        }
+        .pagination-item.active {
+          @apply bg-app-blue text-white;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col bg-white">
+    <!-- Header/Navbar -->
+    <header class="w-full border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50 transition-all">
+      <div class="container flex h-16 items-center justify-between px-4 md:px-6 mx-auto">
+        <div class="flex items-center gap-2">
+          <a href="index.html" class="flex items-center gap-2">
+              <div class=" bg-app-white p-1 w-16 h-16"> 
+                <img 
+                  src="../assets/483227670_1349136749762957_5523333039824855518_n.png"
+                  alt=""
+                  class="w-full h-full object-cover rounded-full"
+                >
+              </div>
+            <span class="font-semibold text-app-blue">DiagExpress</span>
+          </a>
+        </div>
+        
+        <nav id="menu" class="hidden md:flex items-center gap-6 text-sm">
+          <a href="index.html" class="font-medium transition-colors hover:text-app-blue">
+            Accueil
+          </a>
+          <a href="services.html" class="font-medium transition-colors hover:text-app-blue">
+            Services
+          </a>
+          <a href="workshops.html" class="font-medium uppercase font-medium transition-colors hover:text-app-blue">
+            Workshops
+          </a>
+          <a href="blog.html" class="font-medium transition-colors hover:text-app-blue">
+            Blog
+          </a>
+        </nav>
+        
+        <div class="flex items-center gap-4">
+          <button class="h-9 rounded-full px-4 bg-app-blue hover:bg-blue-800 text-white inline-flex items-center justify-center text-sm font-medium">
+            GET STARTED
+          </button>
+          
+          <button id="menu-toggle" class="rounded-full border p-2 md:hidden">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <span class="sr-only">Toggle menu</span>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden px-4 py-3 bg-app-light-pink/50 border-b transition-all">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
+              Accueil
+            </a>
+          </li>
+          <li>
+            <a href="services.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="workshops.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
+              WORKSHOPS
+            </a>
+          </li>
+          <li>
+            <a href="blog.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
+              Blog
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    
+    <!-- Hero Section with Search -->
+    <section class="relative">
+      <div class="h-[300px] w-full bg-gradient-to-r from-blue-900 to-blue-700 overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+          <img 
+            src="../assets/482376767_2749412575259941_3061229840499673304_n.png" 
+            alt="Car diagnostics" 
+            class="object-cover w-full h-full "
+          />
+        </div>
+      </div>
+      <!-- Search Filter -->
+      <div class="w-full max-w-4xl mx-auto -mt-6 relative z-10">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x">
+            <div class="p-4">
+              <div class="text-xs font-medium text-gray-500 mb-1">LOCATION</div>
+              <div class="flex items-center">
+                <input
+                  type="text"
+                  placeholder="Atlanta"
+                  class="w-full border-none bg-transparent text-sm focus:outline-none"
+                  value="Tunis"
+                />
+              </div>
+            </div>
+
+            <div class="p-4">
+              <div class="text-xs font-medium text-gray-500 mb-1">DATE</div>
+              <div class="flex items-center">
+                <input
+                  type="text"
+                  placeholder="DD/MM/YYYY"
+                  class="w-full border-none bg-transparent text-sm focus:outline-none"
+                  value="01/10/2023"
+                />
+              </div>
+            </div>
+
+            <div class="p-4">
+              <div class="text-xs font-medium text-gray-500 mb-1">MODEL</div>
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-gray-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 3H9L5 8.99M15 3L19 8.99M15 3V8.99H19M5 8.99H9M5 8.99L7 12M19 8.99L17 12M9 8.99H15M9 8.99V12M15 8.99V12M7 12V18.98H17V12M7 12H9M17 12H15M9 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <input
+                  type="text"
+                  placeholder="BMW"
+                  class="w-full border-none bg-transparent text-sm focus:outline-none"
+                  value="BMW"
+                />
+              </div>
+            </div>
+
+            <div class="p-4 flex items-center justify-center bg-white">
+              <button onclick="window.location.href='./services.html'" class="bg-app-blue hover:bg-blue-800 text-white w-full md:w-auto h-10 px-4 py-2 rounded-md inline-flex items-center justify-center gap-2">
+                Find service
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Content -->
+    <section class="container px-4 py-10 mx-auto">
+      <div class="bg-app-light-pink bg-opacity-50 rounded-2xl p-6">
+        <h2 class="text-2xl font-semibold text-center mb-8">SERVICES</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+          
+          <!-- Service Card 2 -->
+          <div class="service-card">
+            <div class="service-icon mb-4">
+              <i class="fa-solid fa-temperature-low"></i>
+            </div>
+            <div class="text-center">
+              <h3 class="font-medium text-sm">Coolant testing</h3>
+            </div>
+          </div>
+          
+          <!-- Service Card 3 -->
+          <div class="service-card">
+            <div class="service-icon mb-4">
+              <i class="fa-solid fa-car-side"></i>
+            </div>
+            <div class="text-center">
+              <h3 class="font-medium text-sm">Brake fluid check</h3>
+            </div>
+          </div>
+          
+          <!-- Service Card 4 -->
+          <div class="service-card">
+            <div class="service-icon mb-4">
+              <i class="fa-solid fa-oil-can"></i>
+            </div>
+            <div class="text-center">
+              <h3 class="font-medium text-sm">Oil Change</h3>
+            </div>
+          </div>
+          
+          <!-- Service Card 5 -->
+          <div class="service-card">
+            <div class="service-icon mb-4">
+              <i class="fa-solid fa-gears"></i>
+            </div>
+            <div class="text-center">
+              <h3 class="font-medium text-sm">Engine power testing</h3>
+            </div>
+          </div>
+          
+          <!-- Service Card 6 -->
+          <div class="service-card">
+            <div class="service-icon mb-4">
+              <i class="fa-solid fa-car-battery"></i>
+            </div>
+            <div class="text-center">
+              <h3 class="font-medium text-sm">Electrical components</h3>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="flex items-center justify-center space-x-2 mt-8">
+          <a href="#" class="pagination-item border-gray-200 hover:bg-gray-50">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="sr-only">Précédent</span>
+          </a>
+
+          <a href="#" class="pagination-item active border-gray-200">1</a>
+          <a href="#" class="pagination-item border-gray-200 hover:bg-gray-50">2</a>
+          <a href="#" class="pagination-item border-gray-200 hover:bg-gray-50">3</a>
+          <span class="text-sm text-gray-500">...</span>
+          <a href="#" class="pagination-item border-gray-200 hover:bg-gray-50">10</a>
+
+          <a href="#" class="pagination-item border-gray-200 hover:bg-gray-50">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="sr-only">Suivant</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Reviews Section -->
+    <section class="container px-4 py-8 mx-auto ">
+      <div class="bg-app-light-pink bg-opacity-50 justify-center rounded-2xl p-6">
+        <h3 class="text-xl font-semibold mb-4">Feedbacks:</h3>
+        
+        <div class="space-y-3">
+          <!-- Review Item 1 -->
+          <div class="p-3 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Wassaf Ammar" class="w-full h-full object-cover" />
+              </div>
+              <div class="text-left">
+                <h4 class="text-sm font-medium">Wassef Ammar</h4>
+                <p class="text-xs text-gray-500">Service satisfaisant</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Review Item 2 -->
+          <div class="p-3 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Fouad Ghanuchi" class="w-full h-full object-cover" />
+              </div>
+              <div class="text-left">
+                <h4 class="text-sm font-medium">Fouad Beji</h4>
+                <p class="text-xs text-gray-500">Service et professionnalisme</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Review Item 3 -->
+          <div class="p-3 bg-white rounded-lg shadow-sm">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Nourhene Dahmoul" class="w-full h-full object-cover" />
+              </div>
+              <div class="text-left">
+                <h4 class="text-sm font-medium">Nourhene Ouhichi</h4>
+                <p class="text-xs text-gray-500">parfait!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <button class=" mt-4 bg-app-blue hover:bg-blue-800 text-white h-10 px-4 py-2 rounded-md">
+          Add a comment
+        </button>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-white border-t py-6 mt-auto">
+      <div class="container px-4 md:px-6 mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <p class="text-xs text-gray-500">
+              Providing accurate and reliable diagnostic services for your Car.
+            </p>
+            <p class="text-xs text-gray-500 mt-1">
+              © Autocheck 2025. All Rights Reserved.
+            </p>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <div class="flex space-x-2">
+              <a href="#" class="inline-flex items-center justify-center bg-black text-white rounded-md px-3 py-1 text-xs">
+                <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.94 5.19A4.38 4.38 0 0 0 16 2a4.44 4.44 0 0 0-3 1.52 4.17 4.17 0 0 0-1 3.09 3.69 3.69 0 0 0 2.94-1.42z"/>
+                  <path d="M17.46 8.06A4.05 4.05 0 0 0 15 6.64a4.08 4.08 0 0 0-2.45 1.18c-.74.66-1.1 1.77-1.1 2.68s.38 2.07 1.1 2.7a4.35 4.35 0 0 0 2.45 1.23 4.05 4.05 0 0 0 2.46-1.23c.72-.63 1.1-1.74 1.1-2.7a3.59 3.59 0 0 0-1.1-2.44z"/>
+                </svg>
+                Apple Store
+              </a>
+              
+              <a href="#" class="inline-flex items-center justify-center bg-black text-white rounded-md px-3 py-1 text-xs">
+                <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L4 12l8 10 8-10z"/>
+                </svg>
+                Google Play
+              </a>
+            </div>
+            
+            <div class="flex space-x-2">
+              <a href="#" class="text-gray-500 hover:text-gray-700">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753c-.002-.249 1.51-2.772 1.818-4.013z"/>
+                </svg>
+              </a>
+              
+              <a href="#" class="text-gray-500 hover:text-gray-700">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                </svg>
+              </a>
+              
+              <a href="#" class="text-gray-500 hover:text-gray-700">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2z"/>
+                  <path d="M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-10.667a6.667 6.667 0 1 0 0 13.334 6.667 6.667 0 0 0 0-13.334zM18.5 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+  
+      document.addEventListener('DOMContentLoaded', function() {
+                  const menuToggle = document.getElementById('menu-toggle');
+                  const mobileMenu = document.getElementById('mobile-menu');
+       
+       
+                  menuToggle.addEventListener('click', function() {
+                      mobileMenu.classList.toggle('hidden');
+                  });
+              });
+      </script>
+  </body>
+</html>
