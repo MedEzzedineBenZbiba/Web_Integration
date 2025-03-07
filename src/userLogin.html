@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Garage - Connexion</title>
+  <meta name="description" content="Connectez-vous à votre compte Atelier Garage">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Configuration Tailwind personnalisée -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'login-bg': '#f8e8ee',
+            'workshop-blue': '#3b5ba9',
+            'workshop-gray': '#f5f5f5',
+            'workshop-lightgray': '#fafafa',
+            'button-primary': '#242887',
+            'button-secondary': '#86e3e8',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'card': '0 2px 8px rgba(0, 0, 0, 0.05)',
+          },
+          animation: {
+            'shake': 'shake 0.5s ease-in-out',
+          },
+          keyframes: {
+            shake: {
+              '0%, 100%': { transform: 'translateX(0)' },
+              '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-5px)' },
+              '20%, 40%, 60%, 80%': { transform: 'translateX(5px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Styles personnalisés -->
+  <style type="text/tailwindcss">
+    @layer components {
+      .login-input {
+        @apply w-full p-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-button-primary/20 transition-all duration-300 placeholder-gray-400 text-center;
+      }
+      
+      .login-input-error {
+        @apply border-red-500 bg-red-50;
+      }
+      
+      .login-button {
+        @apply w-full py-3 rounded-full font-medium transition-all duration-300 text-center;
+      }
+      
+      .primary-button {
+        @apply login-button bg-button-primary text-white hover:bg-button-primary/90;
+      }
+      
+      .secondary-button {
+        @apply login-button bg-button-secondary text-white hover:bg-button-secondary/90;
+      }
+      
+      .link-text {
+        @apply text-sm text-gray-600 underline decoration-gray-400 hover:text-button-primary transition-all duration-300;
+      }
+      
+      .error-message {
+        @apply text-xs text-red-500 text-center mt-1;
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-sm p-8 mx-4">
+    <!-- Login Card -->
+    <div class="rounded-3xl bg-login-bg shadow-lg px-8 py-10 animate-fade-in">
+      <!-- Logo/Title -->
+      <div class="text-center mb-8">
+        <h1 class="text-2xl font-bold">Login</h1>
+      </div>
+      
+      <!-- Login Form -->
+      <form id="loginForm" class="space-y-5">
+        <!-- Email/Phone Field -->
+        <div>
+          <input 
+            type="text" 
+            id="username" 
+            class="login-input underline" 
+            style="text-decoration-thickness: 1px;"
+            placeholder="E-mail or Phone Number"
+        
+          >
+          <div id="usernameError" class="error-message hidden">
+            E-mail or Telephone number are required !
+          </div>
+        </div>
+        
+        <!-- Password Field -->
+        <div>
+          <input 
+            type="password" 
+            id="password" 
+            class="login-input underline" 
+            style="text-decoration-thickness: 1px;"
+            placeholder="Password"
+          >
+          <div id="passwordError" class="error-message hidden">
+            Password is required !
+          </div>
+        </div>
+        
+        <!-- Login Button -->
+        <div class="pt-4">
+          <button 
+            id="loginButton"
+            type="submit" 
+            class="primary-button"
+          >
+            Log In
+          </button>
+        </div>
+        
+        <!-- Create Account Button -->
+        <div>
+          <button 
+            type="button" 
+            id="createAccountBtn" 
+            class="secondary-button"
+          >
+            Create New Account
+          </button>
+        </div>
+        
+        <!-- Forgot Password Link with underline -->
+        <div class="text-center pt-2">
+          <a href="#" id="forgotPasswordLink" class="font-bold text-sm text-black underline decoration-gray-400 hover:decoration-black transition-all duration-300 ">
+            Forget Account ?
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Notification Toast (Hidden by default) -->
+  <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg opacity-0 transition-opacity duration-300 pointer-events-none">
+    Login successful!
+  </div>
+  
+  <!-- Error Toast (Hidden by default) -->
+  <div id="errorToast" class="fixed bottom-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg opacity-0 transition-opacity duration-300 pointer-events-none">
+    Veuillez remplir tous les champs requis
+  </div>
+  
+  <script>
+    // Login form submission handler
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username');
+      const password = document.getElementById('password');
+      const usernameError = document.getElementById('usernameError');
+      const passwordError = document.getElementById('passwordError');
+      const errorToast = document.getElementById('errorToast');
+      const successToast = document.getElementById('toast');
+      
+      let isValid = true;
+      
+      // Reset error states
+      username.classList.remove('login-input-error', 'animate-shake');
+      password.classList.remove('login-input-error', 'animate-shake');
+      usernameError.classList.add('hidden');
+      passwordError.classList.add('hidden');
+      
+      // Validate username
+      if (!username.value.trim()) {
+        username.classList.add('login-input-error', 'animate-shake');
+        usernameError.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      // Validate password
+      if (!password.value.trim()) {
+        password.classList.add('login-input-error', 'animate-shake');
+        passwordError.classList.remove('hidden');
+        isValid = false;
+      }
+      
+      if (isValid) {
+        // Show success toast
+        successToast.classList.remove('opacity-0');
+        successToast.classList.add('opacity-100');
+        
+        // Hide success toast after 3 seconds
+        setTimeout(function() {
+          successToast.classList.remove('opacity-100');
+          successToast.classList.add('opacity-0');
+        }, 3000);
+        
+        // In a real app, you would perform an actual login request here
+        console.log('Login attempt:', { username: username.value, password: password.value });
+        
+        // Optionally redirect after successful validation
+        // window.location.href = './profile.html';
+      } else {
+        // Show error toast
+        errorToast.classList.remove('opacity-0');
+        errorToast.classList.add('opacity-100');
+        
+        // Hide error toast after 3 seconds
+        setTimeout(function() {
+          errorToast.classList.remove('opacity-100');
+          errorToast.classList.add('opacity-0');
+        }, 3000);
+      }
+    });
+    
+    // Create account button click handler
+    document.getElementById('createAccountBtn').addEventListener('click', function() {
+      console.log('Navigate to create account page');
+      // In a real app, you would redirect to the registration page
+      alert('Create Account Page would open here');
+    });
+    
+    // Forgot password link click handler
+    document.getElementById('forgotPasswordLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Navigate to forgot password page');
+      // In a real app, you would redirect to the forgot password page
+      alert('Forgot Password Page would open here');
+    });
+
+
+    
+    // Add focus and blur effects to inputs
+    const inputs = document.querySelectorAll('.login-input');
+    inputs.forEach(input => {
+      // Clear error state when typing
+      input.addEventListener('input', function() {
+        const errorElement = document.getElementById(input.id + 'Error');
+        if (errorElement) {
+          input.classList.remove('login-input-error', 'animate-shake');
+          errorElement.classList.add('hidden');
+        }
+      });
+      
+      input.addEventListener('focus', function() {
+        this.classList.add('ring-2');
+        this.classList.add('ring-button-primary/20');
+      });
+      
+      input.addEventListener('blur', function() {
+        if (!this.value) {
+          this.classList.remove('ring-2');
+          this.classList.remove('ring-button-primary/20');
+        }
+      });
+
+    });
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    const button=document.getElementById('loginButton');
+    button.addEventListener('click',()=>{
+        if(username.value!="" && password.value!=""){
+           window.location.href = "./profile.html";         }
+        
+    })
+  </script>
+</body>
+</html>
