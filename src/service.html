@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-100 text-foreground font-sans antialiased">
+  <!-- Header -->
+  <!-- Header/Navbar -->
+ <!-- Header -->
+ <header class="flex items-center justify-between px-6 py-4 bg-white font-bold ">
+  <div class="flex items-center">
+      <img src="../public/images/main-logo.png" alt="DiagExpress" class="h-10">
+  </div>
+  <nav class="hidden md:flex items-center space-x-8">
+    <a href="../public/home.html" class="text-gray-700 hover:text-primary">Accueil</a>
+    <a href="./services.html" class="text-gray-700 hover:text-primary">Services</a>
+    <a href="./workshops.html" class="text-gray-700 hover:text-primary">WORKSHOPS</a>
+      <a href="#" class="text-gray-700 hover:text-primary">Blog</a>
+  </nav>
+  <button class="bg-[#1A2779] text-white px-6 py-2 rounded-md hover:bg-secondary transition">
+      Get Started
+  </button>
+</header>
+
+
+<section class="relative h-[500px] bg-cover bg-center" style="background-image: url('../public/images/background.png') ">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+      <div class="bg-white/90 p-6 rounded-lg w-full max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div class="relative">
+                  <input type="text" placeholder="Location" class="w-full pl-10 pr-3 py-2 border rounded-md" value="Ariana">
+                  <span class="absolute left-3 top-2.5">📍</span>
+              </div>
+              <div class="relative">
+                  <input type="date" class="w-full pl-10 pr-3 py-2 border rounded-md" value="2020-10-20">
+                  <span class="absolute left-3 top-2.5">📅</span>
+              </div>
+              <div class="relative">
+                  <input type="text" placeholder="Model" class="w-full pl-10 pr-3 py-2 border rounded-md" value="BMW">
+                  <span class="absolute left-3 top-2.5">🚗</span>
+              </div>
+              <button class="bg-[#1A2779] text-white py-2 px-4 rounded-md hover:bg-secondary transition">
+                  Find service
+              </button>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+
+  <!-- ServiceDetails -->
+  <section class="py-10">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="bg-[#f6eef0] rounded-lg p-6 mb-8 text-center">
+        <h2 class="text-2xl font-bold">Services détaillés</h2>
+      </div>
+      
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-10">Vidange Service</h2>
+        
+        <div class="flex justify-center mb-8">
+          <div class="w-32 h-32 bg-blue-200 rounded-full flex items-center justify-center">
+            <div class="text-4xl">🔧</div>
+          </div>
+        </div>
+        
+        <div class="space-y-6 max-w-md mx-auto">
+          <p class="text-gray-600">
+            Notre service de vidange comprend le remplacement de l'huile moteur et du filtre à huile. 
+            Nous utilisons uniquement des huiles de haute qualité adaptées à votre véhicule.
+          </p>
+          
+          <div class="bg-[#f6eef0] rounded-lg p-4 text-left">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="font-bold">Prix standard</h3>
+                <p class="text-sm text-gray-600">À partir de 80 DT</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </div>
+          
+          <div class="bg-[#f6eef0] rounded-lg p-4 text-left">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="font-bold">Durée estimée</h3>
+                <p class="text-sm text-gray-600">45 minutes</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+          </div>
+          
+          <div class="text-center mt-6">
+            <button class="bg-blue-900 text-white rounded-md px-6 py-2">Réserver maintenant</button>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="my-10 border-gray-300" />
+      
+      <!-- ServiceGrid -->
+      <div>
+        <h2 class="text-3xl font-bold mb-8 text-center">Nos Services</h2>
+        <div class="grid grid-cols-3 gap-4 mb-8">
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">📊</div>
+            <p class="text-sm font-medium">Diagnostic</p>
+          </div>
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">🔧</div>
+            <p class="text-sm font-medium">Mécanique</p>
+          </div>
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">📋</div>
+            <p class="text-sm font-medium">Inspection</p>
+          </div>
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">🔍</div>
+            <p class="text-sm font-medium">Moteur</p>
+          </div>
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">🌡️</div>
+            <p class="text-sm font-medium">Refroidissement</p>
+          </div>
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">🚘</div>
+            <p class="text-sm font-medium">Alignement</p>
+          </div>
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">🛞</div>
+            <p class="text-sm font-medium">Pneumatique</p>
+          </div>
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">🔋</div>
+            <p class="text-sm font-medium">Batterie</p>
+          </div>
+          <div class="bg-[#f6eef0] p-4 rounded-lg text-center">
+            <div class="text-4xl mb-2">🚚</div>
+            <p class="text-sm font-medium">Dépannage</p>
+          </div>
+        </div>
+         <!-- Bouton "Voir plus" centré -->
+  <div class="flex justify-center mt-6">
+    <button class="bg-blue-900 text-white rounded-md px-6 py-2">Voir plus</button>
+  </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+   <!-- Footer -->
+   <footer class="py-8 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="mb-6">
+        <p class="text-gray-600">Providing accurate and reliable diagnostic services for your Car.</p>
+        <p class="text-gray-600">📍 [Ariana Zoghra] | 📞 [55555555] </p>
+        <p> ✉️ [DiagExpress@DiagExpress.com]</p>
+      </div>
+      <div class="flex flex-wrap justify-between items-center">
+        <div class="space-x-4">
+          <a href="#" class="text-gray-600">  🔒 Privacy Policy</a>
+          <span class="text-gray-400">|</span>
+          <a href="#" class="text-gray-600"> 📄 Terms & Conditions</a>
+          <span class="text-gray-400">|</span>
+          <a href="#" class="text-gray-600">  📧 Contact Us</a>
+        </div>
+        <div class="flex items-center gap-4 mt-4 md:mt-0">
+          <a href="#" class="rounded-full border-2 border-black-500d bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+            <span>
+              <img src="../public/images/apple.png" class="inline"> Apple store
+            </span>
+          </a>
+          <a href="#" class="rounded-full  border-2 border-indigo-500 bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+            <button>
+              <img src="../public/images/googleplay.png" class="inline"> Google play
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <div class="mt-6 text-gray-500">© DiagExpress 2025 . All Rights Reserved.</div>
+        <div>
+          <img class="inline-block mx-2" src="../public/images/fb.png">
+          <img class="inline-block mx-2" src="../public/images/instagram.png">
+          <img class="inline-block mx-2" src="../public/images/x.png">
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>

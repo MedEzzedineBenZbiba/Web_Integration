@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-100 text-foreground font-sans antialiased">
+  <!-- Header -->
+  <!-- Header/Navbar -->
+ <!-- Header -->
+ <header class="flex items-center justify-between px-6 py-4 bg-white font-bold ">
+  <div class="flex items-center">
+      <img src="../public/images/main-logo.png" alt="DiagExpress" class="h-10">
+  </div>
+  <nav class="hidden md:flex items-center space-x-8">
+      <a href="../public/home.html" class="text-gray-700 hover:text-primary">Accueil</a>
+      <a href="./services.html" class="text-gray-700 hover:text-primary">Services</a>
+      <a href="./workshops.html" class="text-gray-700 hover:text-primary">WORKSHOPS</a>
+      <a href="#" class="text-gray-700 hover:text-primary">Blog</a>
+  </nav>
+  <button class="bg-[#1A2779] text-white px-6 py-2 rounded-md hover:bg-secondary transition">
+      Get Started
+  </button>
+</header>
+
+
+<section class="relative h-[500px] bg-cover bg-center" style="background-image: url('../public/images/background.png') ">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+      <div class="bg-white/90 p-6 rounded-lg w-full max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div class="relative">
+                  <input type="text" placeholder="Location" class="w-full pl-10 pr-3 py-2 border rounded-md" value="Ariana">
+                  <span class="absolute left-3 top-2.5">📍</span>
+              </div>
+              <div class="relative">
+                  <input type="date" class="w-full pl-10 pr-3 py-2 border rounded-md" value="2020-10-20">
+                  <span class="absolute left-3 top-2.5">📅</span>
+              </div>
+              <div class="relative">
+                  <input type="text" placeholder="Model" class="w-full pl-10 pr-3 py-2 border rounded-md" value="BMW">
+                  <span class="absolute left-3 top-2.5">🚗</span>
+              </div>
+              <button class="bg-[#1A2779] text-white py-2 px-4 rounded-md hover:bg-secondary transition">
+                  Find service
+              </button>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+    <!-- Reviews Section -->
+    <section class="py-10">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="bg-[#f6eef0] rounded-lg p-6 mb-8 text-center">
+          <h2 class="text-2xl font-bold">Avis</h2>
+        </div>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-10">Ajouter Avis</h2>
+          <div class="flex justify-center mb-8">
+            <div class="w-32 h-32 bg-blue-200 rounded-full flex items-center justify-center">
+              <img 
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgZmlsbD0ibm9uZSIvPjxjaXJjbGUgY3g9IjEyOCIgY3k9IjEyOCIgcj0iOTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjgiLz48Y2lyY2xlIGN4PSIxMjgiIGN5PSI5NiIgcj0iMzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjgiLz48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI4IiBkPSJNMzAgMTkyYzMwLTM0LjYgNjQuMy01NCAxMDAtNTRzNzAgMTkuNCAxMDAgNTQiLz48L3N2Zz4=" 
+                alt="User avatar"
+                class="h-20 w-20 object-cover"
+              />
+            </div>
+          </div>
+          <div class="space-y-4 max-w-md mx-auto">
+            <div class="relative">
+              <input class="bg-[#f6eef0] rounded-md p-3 w-full" placeholder="Nom" />
+              <i data-lucide="chevron-right" class="absolute right-3 top-3 text-gray-400"></i>
+            </div>
+            <div class="relative">
+              <input class="bg-[#f6eef0] rounded-md p-3 w-full" placeholder="Email" />
+              <i data-lucide="chevron-right" class="absolute right-3 top-3 text-gray-400"></i>
+            </div>
+            <div class="relative">
+              <input class="bg-[#f6eef0] rounded-md p-3 w-full" placeholder="Message" />
+              <i data-lucide="chevron-right" class="absolute right-3 top-3 text-gray-400"></i>
+            </div>
+            <div class="text-right">
+              <button class="bg-blue-900 text-white rounded-md px-6 py-2">Submit</button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Évaluez notre service</h2>
+            <div class="flex justify-center space-x-2" id="rating">
+              <i data-lucide="star" class="h-8 w-8 text-yellow-400 cursor-pointer" data-value="1"></i>
+              <i data-lucide="star" class="h-8 w-8 text-yellow-400 cursor-pointer" data-value="2"></i>
+              <i data-lucide="star" class="h-8 w-8 text-yellow-400 cursor-pointer" data-value="3"></i>
+              <i data-lucide="star" class="h-8 w-8 text-yellow-400 cursor-pointer" data-value="4"></i>
+              <i data-lucide="star" class="h-8 w-8 text-yellow-400 cursor-pointer" data-value="5"></i>
+            </div>
+            
+          </div>
+        <hr class="my-10 border-gray-300" />
+        <!-- Client Reviews -->
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold mb-8 text-center">Avis Clients</h2>
+          <div class="space-y-4">
+            <div class="bg-[#f6eef0] rounded-lg p-4 flex items-center">
+              <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+              <div>
+                <h3 class="font-bold">Wassaf Annwar</h3>
+                <p class="text-sm text-gray-600">Satisfied with the work</p>
+              </div>
+            </div>
+            <div class="bg-[#f6eef0] rounded-lg p-4 flex items-center">
+              <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+              <div>
+                <h3 class="font-bold">Fouad chawachi</h3>
+                <p class="text-sm text-gray-600">manque de professionalité</p>
+              </div>
+            </div>
+            <div class="bg-[#f6eef0] rounded-lg p-4 flex items-center">
+              <div class="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+              <div>
+                <h3 class="font-bold">Nourthene Ounihchi</h3>
+                <p class="text-sm text-gray-600">parfait</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-6">
+            <button class="bg-blue-900 text-white rounded-md px-6 py-2">Plus de commentaires ...</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+   <!-- Footer -->
+   <footer class="py-8 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="mb-6">
+        <p class="text-gray-600">Providing accurate and reliable diagnostic services for your Car.</p>
+        <p class="text-gray-600">📍 [Ariana Zoghra] | 📞 [55555555] </p>
+        <p> ✉️ [DiagExpress@DiagExpress.com]</p>
+      </div>
+      <div class="flex flex-wrap justify-between items-center">
+        <div class="space-x-4">
+          <a href="#" class="text-gray-600">  🔒 Privacy Policy</a>
+          <span class="text-gray-400">|</span>
+          <a href="#" class="text-gray-600"> 📄 Terms & Conditions</a>
+          <span class="text-gray-400">|</span>
+          <a href="#" class="text-gray-600">  📧 Contact Us</a>
+        </div>
+        <div class="flex items-center gap-4 mt-4 md:mt-0">
+          <a href="#" class="rounded-full border-2 border-black-500d bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+            <span>
+              <img src="../public/images/apple.png" class="inline"> Apple store
+            </span>
+          </a>
+          <a href="#" class="rounded-full  border-2 border-indigo-500 bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+            <button>
+              <img src="../public/images/googleplay.png" class="inline"> Google play
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <div class="mt-6 text-gray-500">© DiagExpress 2025 . All Rights Reserved.</div>
+        <div>
+          <img class="inline-block mx-2" src="../public/images/fb.png">
+          <img class="inline-block mx-2" src="../public/images/instagram.png">
+          <img class="inline-block mx-2" src="../public/images/x.png">
+        </div>
+      </div>
+    </div>
+  </footer>
+  </body>

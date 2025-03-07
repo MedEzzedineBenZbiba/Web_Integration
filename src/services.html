@@ -51,141 +51,47 @@
   </head>
   <body class="min-h-screen flex flex-col bg-white">
     <!-- Header/Navbar -->
-    <header class="w-full border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50 transition-all">
-      <div class="container flex h-16 items-center justify-between px-4 md:px-6 mx-auto">
-        <div class="flex items-center gap-2">
-          <a href="index.html" class="flex items-center gap-2">
-              <div class=" bg-app-white p-1 w-16 h-16"> 
-                <img 
-                  src="../assets/483227670_1349136749762957_5523333039824855518_n.png"
-                  alt=""
-                  class="w-full h-full object-cover rounded-full"
-                >
-              </div>
-            <span class="font-semibold text-app-blue">DiagExpress</span>
-          </a>
-        </div>
-        
-        <nav id="menu" class="hidden md:flex items-center gap-6 text-sm">
-          <a href="index.html" class="font-medium transition-colors hover:text-app-blue">
-            Accueil
-          </a>
-          <a href="services.html" class="font-medium transition-colors hover:text-app-blue">
-            Services
-          </a>
-          <a href="workshops.html" class="font-medium uppercase font-medium transition-colors hover:text-app-blue">
-            Workshops
-          </a>
-          <a href="blog.html" class="font-medium transition-colors hover:text-app-blue">
-            Blog
-          </a>
-        </nav>
-        
-        <div class="flex items-center gap-4">
-          <button class="h-9 rounded-full px-4 bg-app-blue hover:bg-blue-800 text-white inline-flex items-center justify-center text-sm font-medium">
-            GET STARTED
-          </button>
-          
-          <button id="menu-toggle" class="rounded-full border p-2 md:hidden">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-            <span class="sr-only">Toggle menu</span>
-          </button>
-        </div>
-      </div>
-      <div id="mobile-menu" class="md:hidden hidden px-4 py-3 bg-app-light-pink/50 border-b transition-all">
-        <ul class="space-y-2">
-          <li>
-            <a href="index.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
-              Accueil
-            </a>
-          </li>
-          <li>
-            <a href="services.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="workshops.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
-              WORKSHOPS
-            </a>
-          </li>
-          <li>
-            <a href="blog.html" class="block p-2 font-medium transition-colors hover:text-app-blue hover:bg-white/60 rounded-md">
-              Blog
-            </a>
-          </li>
-        </ul>
-      </div>
-    </header>
-    
-    <!-- Hero Section with Search -->
-    <section class="relative">
-      <div class="h-[300px] w-full bg-gradient-to-r from-blue-900 to-blue-700 overflow-hidden">
-        <div class="absolute inset-0 overflow-hidden">
-          <img 
-            src="../assets/482376767_2749412575259941_3061229840499673304_n.png" 
-            alt="Car diagnostics" 
-            class="object-cover w-full h-full "
-          />
-        </div>
-      </div>
-      <!-- Search Filter -->
-      <div class="w-full max-w-4xl mx-auto -mt-6 relative z-10">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden">
-          <div class="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x">
-            <div class="p-4">
-              <div class="text-xs font-medium text-gray-500 mb-1">LOCATION</div>
-              <div class="flex items-center">
-                <input
-                  type="text"
-                  placeholder="Atlanta"
-                  class="w-full border-none bg-transparent text-sm focus:outline-none"
-                  value="Tunis"
-                />
-              </div>
-            </div>
+ <!-- Header -->
+ <header class="flex items-center justify-between px-6 py-4 bg-white font-bold ">
+  <div class="flex items-center">
+      <img src="../public/images/main-logo.png" alt="DiagExpress" class="h-10">
+  </div>
+  <nav class="hidden md:flex items-center space-x-8">
+    <a href="../public/home.html" class="text-gray-700 hover:text-primary">Accueil</a>
+    <a href="./services.html" class="text-gray-700 hover:text-primary">Services</a>
+    <a href="./workshops.html" class="text-gray-700 hover:text-primary">WORKSHOPS</a>
+      <a href="#" class="text-gray-700 hover:text-primary">Blog</a>
+  </nav>
+  <button class="bg-[#1A2779] text-white px-6 py-2 rounded-md hover:bg-secondary transition">
+      Get Started
+  </button>
+</header>
 
-            <div class="p-4">
-              <div class="text-xs font-medium text-gray-500 mb-1">DATE</div>
-              <div class="flex items-center">
-                <input
-                  type="text"
-                  placeholder="DD/MM/YYYY"
-                  class="w-full border-none bg-transparent text-sm focus:outline-none"
-                  value="01/10/2023"
-                />
-              </div>
-            </div>
 
-            <div class="p-4">
-              <div class="text-xs font-medium text-gray-500 mb-1">MODEL</div>
-              <div class="flex items-center gap-2">
-                <svg class="h-4 w-4 text-gray-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 3H9L5 8.99M15 3L19 8.99M15 3V8.99H19M5 8.99H9M5 8.99L7 12M19 8.99L17 12M9 8.99H15M9 8.99V12M15 8.99V12M7 12V18.98H17V12M7 12H9M17 12H15M9 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <input
-                  type="text"
-                  placeholder="BMW"
-                  class="w-full border-none bg-transparent text-sm focus:outline-none"
-                  value="BMW"
-                />
+<section class="relative h-[500px] bg-cover bg-center" style="background-image: url('../public/images/background.png') ">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+      <div class="bg-white/90 p-6 rounded-lg w-full max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div class="relative">
+                  <input type="text" placeholder="Location" class="w-full pl-10 pr-3 py-2 border rounded-md" value="Ariana">
+                  <span class="absolute left-3 top-2.5">📍</span>
               </div>
-            </div>
-
-            <div class="p-4 flex items-center justify-center bg-white">
-              <button onclick="window.location.href='./services.html'" class="bg-app-blue hover:bg-blue-800 text-white w-full md:w-auto h-10 px-4 py-2 rounded-md inline-flex items-center justify-center gap-2">
-                Find service
-                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
+              <div class="relative">
+                  <input type="date" class="w-full pl-10 pr-3 py-2 border rounded-md" value="2020-10-20">
+                  <span class="absolute left-3 top-2.5">📅</span>
+              </div>
+              <div class="relative">
+                  <input type="text" placeholder="Model" class="w-full pl-10 pr-3 py-2 border rounded-md" value="BMW">
+                  <span class="absolute left-3 top-2.5">🚗</span>
+              </div>
+              <button class="bg-[#1A2779] text-white py-2 px-4 rounded-md hover:bg-secondary transition">
+                  Find service
               </button>
-            </div>
           </div>
-        </div>
       </div>
-    </section>
+  </div>
+</section>
     
     <!-- Services Content -->
     <section class="container px-4 py-10 mx-auto">
@@ -324,56 +230,40 @@
     </section>
     
     <!-- Footer -->
-    <footer class="bg-white border-t py-6 mt-auto">
-      <div class="container px-4 md:px-6 mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
-            <p class="text-xs text-gray-500">
-              Providing accurate and reliable diagnostic services for your Car.
-            </p>
-            <p class="text-xs text-gray-500 mt-1">
-              © Autocheck 2025. All Rights Reserved.
-            </p>
+    <footer class="py-8 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="mb-6">
+          <p class="text-gray-600">Providing accurate and reliable diagnostic services for your Car.</p>
+          <p class="text-gray-600">📍 [Ariana Zoghra] | 📞 [55555555] </p>
+          <p> ✉️ [DiagExpress@DiagExpress.com]</p>
+        </div>
+        <div class="flex flex-wrap justify-between items-center">
+          <div class="space-x-4">
+            <a href="#" class="text-gray-600">  🔒 Privacy Policy</a>
+            <span class="text-gray-400">|</span>
+            <a href="#" class="text-gray-600"> 📄 Terms & Conditions</a>
+            <span class="text-gray-400">|</span>
+            <a href="#" class="text-gray-600">  📧 Contact Us</a>
           </div>
-          
-          <div class="flex items-center space-x-4">
-            <div class="flex space-x-2">
-              <a href="#" class="inline-flex items-center justify-center bg-black text-white rounded-md px-3 py-1 text-xs">
-                <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14.94 5.19A4.38 4.38 0 0 0 16 2a4.44 4.44 0 0 0-3 1.52 4.17 4.17 0 0 0-1 3.09 3.69 3.69 0 0 0 2.94-1.42z"/>
-                  <path d="M17.46 8.06A4.05 4.05 0 0 0 15 6.64a4.08 4.08 0 0 0-2.45 1.18c-.74.66-1.1 1.77-1.1 2.68s.38 2.07 1.1 2.7a4.35 4.35 0 0 0 2.45 1.23 4.05 4.05 0 0 0 2.46-1.23c.72-.63 1.1-1.74 1.1-2.7a3.59 3.59 0 0 0-1.1-2.44z"/>
-                </svg>
-                Apple Store
-              </a>
-              
-              <a href="#" class="inline-flex items-center justify-center bg-black text-white rounded-md px-3 py-1 text-xs">
-                <svg class="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L4 12l8 10 8-10z"/>
-                </svg>
-                Google Play
-              </a>
-            </div>
-            
-            <div class="flex space-x-2">
-              <a href="#" class="text-gray-500 hover:text-gray-700">
-                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84 0 0 0 .497-3.753c-.002-.249 1.51-2.772 1.818-4.013z"/>
-                </svg>
-              </a>
-              
-              <a href="#" class="text-gray-500 hover:text-gray-700">
-                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-                </svg>
-              </a>
-              
-              <a href="#" class="text-gray-500 hover:text-gray-700">
-                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2z"/>
-                  <path d="M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-10.667a6.667 6.667 0 1 0 0 13.334 6.667 6.667 0 0 0 0-13.334zM18.5 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                </svg>
-              </a>
-            </div>
+          <div class="flex items-center gap-4 mt-4 md:mt-0">
+            <a href="#" class="rounded-full border-2 border-black-500d bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+              <span>
+                <img src="../public/images/apple.png" class="inline"> Apple store
+              </span>
+            </a>
+            <a href="#" class="rounded-full  border-2 border-indigo-500 bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+              <button>
+                <img src="../public/images/googleplay.png" class="inline"> Google play
+              </button>
+            </a>
+          </div>
+        </div>
+        <div class="flex justify-between items-center">
+          <div class="mt-6 text-gray-500">© DiagExpress 2025 . All Rights Reserved.</div>
+          <div>
+            <img class="inline-block mx-2" src="../public/images/fb.png">
+            <img class="inline-block mx-2" src="../public/images/instagram.png">
+            <img class="inline-block mx-2" src="../public/images/x.png">
           </div>
         </div>
       </div>

@@ -7,6 +7,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
+ <!-- Header/Navbar -->
+ <!-- Header -->
+ <header class="flex items-center justify-between px-6 py-4 bg-white font-bold ">
+  <div class="flex items-center">
+      <img src="../public/images/main-logo.png" alt="DiagExpress" class="h-10">
+  </div>
+  <nav class="hidden md:flex items-center space-x-8">
+      <a href="../public/home.html" class="text-gray-700 hover:text-primary">Accueil</a>
+      <a href="../src/services.html" class="text-gray-700 hover:text-primary">Services</a>
+      <a href="../src/workshops.html" class="text-gray-700 hover:text-primary">WORKSHOPS</a>
+      <a href="#" class="text-gray-700 hover:text-primary">Blog</a>
+  </nav>
+  <button class="bg-[#1A2779] text-white px-6 py-2 rounded-md hover:bg-secondary transition">
+      Get Started
+  </button>
+</header>
+
+
+
     <h2 class="text-3xl text-center font-bold mb-6 bg-[#EEE5E9] w-3/4 mx-auto my-4 p-6 rounded-lg">Réserver un entretien</h2>
   <section class="container mx-auto mt-10 px-6">
 
@@ -59,6 +78,44 @@
       </div>
     </div>
   </section>
-
+ <!-- Footer -->
+ <footer class="py-8 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="mb-6">
+      <p class="text-gray-600">Providing accurate and reliable diagnostic services for your Car.</p>
+      <p class="text-gray-600">📍 [Ariana Zoghra] | 📞 [55555555] </p>
+      <p> ✉️ [DiagExpress@DiagExpress.com]</p>
+    </div>
+    <div class="flex flex-wrap justify-between items-center">
+      <div class="space-x-4">
+        <a href="#" class="text-gray-600">  🔒 Privacy Policy</a>
+        <span class="text-gray-400">|</span>
+        <a href="#" class="text-gray-600"> 📄 Terms & Conditions</a>
+        <span class="text-gray-400">|</span>
+        <a href="#" class="text-gray-600">  📧 Contact Us</a>
+      </div>
+      <div class="flex items-center gap-4 mt-4 md:mt-0">
+        <a href="#" class="rounded-full border-2 border-black-500d bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+          <span>
+            <img src="../public/images/apple.png" class="inline"> Apple store
+          </span>
+        </a>
+        <a href="#" class="rounded-full  border-2 border-indigo-500 bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+          <button>
+            <img src="../public/images/googleplay.png" class="inline"> Google play
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div class="mt-6 text-gray-500">© DiagExpress 2025 . All Rights Reserved.</div>
+      <div>
+        <img class="inline-block mx-2" src="../public/images/fb.png">
+        <img class="inline-block mx-2" src="../public/images/instagram.png">
+        <img class="inline-block mx-2" src="../public/images/x.png">
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
