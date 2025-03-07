@@ -4,39 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atelier Garage</title>
-    <meta name="description" content="Trouvez le meilleur service pour votre véhicule" />
+    <meta
+      name="description"
+      content="Trouvez le meilleur service pour votre véhicule"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'workshop-blue': '#3b5ba9',
-              'workshop-gray': '#EEE5E9',
-              'workshop-lightgray': '#fafafa',
-              'workshop-darkgray': '#777777',
+              "workshop-blue": "#3b5ba9",
+              "workshop-gray": "#EEE5E9",
+              "workshop-lightgray": "#fafafa",
+              "workshop-darkgray": "#777777",
             },
             boxShadow: {
-              'card': '0 2px 8px rgba(0, 0, 0, 0.05)',
+              card: "0 2px 8px rgba(0, 0, 0, 0.05)",
             },
-          }
-        }
-      }
+          },
+        },
+      };
     </script>
     <style type="text/tailwindcss">
       @layer components {
         .container-custom {
           @apply w-full px-4 mx-auto max-w-7xl;
         }
-        
+
         .transition-custom {
           @apply transition-all duration-300 ease-in-out;
         }
-        
+
         .card-workshop {
           @apply bg-white rounded-lg shadow-card border border-gray-100 overflow-hidden transition-custom;
         }
-        
+
         .search-input {
           @apply w-full p-2 text-sm rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-workshop-blue/20 transition-custom;
         }
@@ -51,21 +54,21 @@
       }
 
       @keyframes fadeUp {
-        0% { 
-          opacity: 0; 
+        0% {
+          opacity: 0;
           transform: translateY(10px);
         }
-        100% { 
-          opacity: 1; 
+        100% {
+          opacity: 1;
           transform: translateY(0);
         }
       }
 
       @keyframes fadeIn {
-        0% { 
+        0% {
           opacity: 0;
         }
-        100% { 
+        100% {
           opacity: 1;
         }
       }
@@ -82,78 +85,123 @@
     </style>
   </head>
 
-  <body class="min-h-screen flex flex-col bg-workshop-lightgray font-Montserrat font-bold">
-  <!-- Header/Navbar -->
- <!-- Header -->
- <header class="flex items-center justify-between px-6 py-4 bg-white font-bold ">
-  <div class="flex items-center">
-    <img src="./images/main-logo.png" alt="DiagExpress" class="h-10">
-  </div>
-  <nav class="hidden md:flex items-center space-x-8">
-    <a href="./home.html" class="text-gray-700 hover:text-primary">Accueil</a>
-    <a href="./services.html" class="text-gray-700 hover:text-primary">Services</a>
-    <a href="./workshops.html" class="text-gray-700 hover:text-primary">WORKSHOPS</a>
-      <a href="#" class="text-gray-700 hover:text-primary">Blog</a>
-  </nav>
-  <button class="bg-[#1A2779] text-white px-6 py-2 rounded-md hover:bg-secondary transition">
-      Get Started
-  </button>
-</header>
-
-
-<section class="relative h-[500px] bg-cover bg-center" style="background-image: url('./images/background.png') ">
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-  <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
-      <div class="bg-white/90 p-6 rounded-lg w-full max-w-4xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div class="relative">
-                  <input type="text" placeholder="Location" class="w-full pl-10 pr-3 py-2 border rounded-md" value="Ariana">
-                  <span class="absolute left-3 top-2.5">📍</span>
-              </div>
-              <div class="relative">
-                  <input type="date" class="w-full pl-10 pr-3 py-2 border rounded-md" value="2020-10-20">
-                  <span class="absolute left-3 top-2.5">📅</span>
-              </div>
-              <div class="relative">
-                  <input type="text" placeholder="Model" class="w-full pl-10 pr-3 py-2 border rounded-md" value="BMW">
-                  <span class="absolute left-3 top-2.5">🚗</span>
-              </div>
-              <button class="bg-[#1A2779] text-white py-2 px-4 rounded-md hover:bg-secondary transition">
-                  Find service
-              </button>
-          </div>
+  <body
+    class="min-h-screen flex flex-col bg-workshop-lightgray font-Montserrat font-bold"
+  >
+    <!-- Header/Navbar -->
+    <header
+      class="flex items-center justify-between px-6 py-4 bg-white font-bold"
+    >
+      <div class="flex items-center">
+        <img src="./images/main-logo.png" alt="DiagExpress" class="h-20 w-40" />
       </div>
-  </div>
-</section>
-    
+      <div class="flex items-center justify-between">
+        <nav class="hidden md:flex items-center justify-between space-x-8 mx-4">
+          <a href="./home.html" class="text-gray-700 hover:text-primary"
+            >Accueil</a
+          >
+          <a href="./services.html" class="text-gray-700 hover:text-primary"
+            >Services</a
+          >
+          <a href="./workshops.html" class="text-gray-700 hover:text-primary"
+            >WORKSHOPS</a
+          >
+          <a href="#" class="text-gray-700 hover:text-primary">Blog</a>
+        </nav>
+        <button
+          class="bg-[#1A2779] text-white px-6 py-2 rounded-md hover:bg-secondary transition"
+        >
+          Get Started
+        </button>
+      </div>
+    </header>
+
+    <section
+      class="relative h-[500px] bg-cover bg-center"
+      style="background-image: url('./images/background.png')"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+        <div class="bg-white/90 p-6 rounded-lg w-full max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Location"
+                class="w-full pl-10 pr-3 py-2 border rounded-md"
+                value="Ariana"
+              />
+              <span class="absolute left-3 top-2.5">📍</span>
+            </div>
+            <div class="relative">
+              <input
+                type="date"
+                class="w-full pl-10 pr-3 py-2 border rounded-md"
+                value="2020-10-20"
+              />
+              <span class="absolute left-3 top-2.5">📅</span>
+            </div>
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Model"
+                class="w-full pl-10 pr-3 py-2 border rounded-md"
+                value="BMW"
+              />
+              <span class="absolute left-3 top-2.5">🚗</span>
+            </div>
+            <button
+              class="bg-[#1A2779] text-white py-2 px-4 rounded-md hover:bg-secondary transition"
+            >
+              Find service
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <main class="flex-1">
-
-
-      
       <div class="container-custom max-w-3xl mx-auto pt-2 pb-8">
         <!-- User Profile -->
-        <section class="px-4 md:px-6 pt-6 animate-fade-up" style="animation-delay: 100ms;">
+        <section
+          class="px-4 md:px-6 pt-6 animate-fade-up"
+          style="animation-delay: 100ms"
+        >
           <div class="flex items-start gap-2 mb-3">
-            <div class="flex items-center justify-center w-6 h-6  rounded-sm">
-              <span class=" text-sm w-50">≡</span>
+            <div class="flex items-center justify-center w-6 h-6 rounded-sm">
+              <span class="text-sm w-50">≡</span>
             </div>
             <h2 class="text-md font-bold text-gray-800">User Details :</h2>
           </div>
-          
-          <div class="bg-white rounded-lg shadow-card border border-gray-100 p-4">
+
+          <div
+            class="bg-white rounded-lg shadow-card border border-gray-100 p-4"
+          >
             <div class="flex flex-col sm:flex-row items-center gap-6">
-              <div class="relative w-20 h-20 sm:w-24 sm:h-24 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="relative w-20 h-20 sm:w-24 sm:h-24 bg-gray-200 rounded-full overflow-hidden"
+              >
                 <!-- User avatar placeholder -->
-                <div class="absolute inset-0 bg-gray-300 ">
-                    <img src="../assets/OIP.jpg" alt="">
+                <div class="absolute inset-0 bg-gray-300">
+                  <img src="../assets/OIP.jpg" alt="" />
                 </div>
               </div>
-              
+
               <div class="flex-1 space-y-3">
                 <div class="flex items-start gap-2">
                   <div class="w-5 h-5 mt-0.5">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-5 h-5"
+                    >
+                      <path
+                        d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      ></path>
                       <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                   </div>
@@ -162,12 +210,24 @@
                     <p class="text-sm font-medium">Mohamed Ben Kilani</p>
                   </div>
                 </div>
-                
+
                 <div class="flex items-start gap-2">
                   <div class="w-5 h-5 mt-0.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                      <path
+                        d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                      ></path>
                     </svg>
                   </div>
                   <div>
@@ -175,11 +235,23 @@
                     <p class="text-sm font-medium">med17@gmail.com</p>
                   </div>
                 </div>
-                
+
                 <div class="flex items-start gap-2">
                   <div class="w-5 h-5 mt-0.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"
+                      ></path>
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                   </div>
@@ -188,11 +260,23 @@
                     <p class="text-sm font-medium">Gbaes , 6001</p>
                   </div>
                 </div>
-                
+
                 <div class="flex items-start gap-2">
                   <div class="w-5 h-5 mt-0.5">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      ></path>
                     </svg>
                   </div>
                   <div>
@@ -206,42 +290,87 @@
         </section>
 
         <!-- Workshop in Progress -->
-        <section class="px-4 md:px-6 py-4 animate-fade-up" style="animation-delay: 200ms;">
+        <section
+          class="px-4 md:px-6 py-4 animate-fade-up"
+          style="animation-delay: 200ms"
+        >
           <div class="border-t border-gray-200 pt-4">
-            <h2 class="text-md font-bold text-gray-800 mb-3">Workshop in progress</h2>
-            
-            <div class="bg-workshop-gray rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <h2 class="text-md font-bold text-gray-800 mb-3">
+              Workshop in progress
+            </h2>
+
+            <div
+              class="bg-workshop-gray rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+            >
               <div class="p-4">
                 <p class="text-sm text-gray-700 mb-3">
-                  Your vehicle Toyota Corolla 2020 is currently being worked on at Electrical Hub. Our team is performing: Service Type, brake repair, oil change...
+                  Your vehicle Toyota Corolla 2020 is currently being worked on
+                  at Electrical Hub. Our team is performing: Service Type, brake
+                  repair, oil change...
                 </p>
-                
-                <div 
+
+                <div
                   class="flex items-center justify-center cursor-pointer text-workshop-blue"
                   id="workshop-progress-toggle"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" id="chevron-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="chevron-down"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+                  >
                     <path d="m6 9 6 6 6-6"></path>
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" id="chevron-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="chevron-up"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5 hidden"
+                  >
                     <path d="m18 15-6-6-6 6"></path>
                   </svg>
                 </div>
               </div>
-              
-              <div id="workshop-progress-details" class="bg-white p-4 border-t border-gray-200 animate-fade-in hidden">
-                <p class="text-sm text-gray-700">Additional details about the workshop service...</p>
+
+              <div
+                id="workshop-progress-details"
+                class="bg-white p-4 border-t border-gray-200 animate-fade-in hidden"
+              >
+                <p class="text-sm text-gray-700">
+                  Additional details about the workshop service...
+                </p>
               </div>
             </div>
           </div>
         </section>
 
         <!-- Workshop History -->
-        <section class="px-4 md:px-6 pb-6 animate-fade-up" style="animation-delay: 300ms;">
+        <section
+          class="px-4 md:px-6 pb-6 animate-fade-up"
+          style="animation-delay: 300ms"
+        >
           <div class="pt-2">
-            <h2 class="text-md font-bold text-gray-800 mb-3">Workshop History</h2>
-            
-            <div class="bg-workshop-gray rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <h2 class="text-md font-bold text-gray-800 mb-3">
+              Workshop History
+            </h2>
+
+            <div
+              class="bg-workshop-gray rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+            >
               <div class="p-4">
                 <div class="flex items-start">
                   <div class="flex-1">
@@ -249,38 +378,92 @@
                     <p class="text-sm text-gray-700 mt-2">Details:</p>
                     <ul class="text-sm text-gray-700 list-disc pl-5 mt-1">
                       <li>Changed engine oil and oil filter</li>
-                      <li>Checked fluid levels (brake fluid, coolant, windshield washer)</li>
+                      <li>
+                        Checked fluid levels (brake fluid, coolant, windshield
+                        washer)
+                      </li>
                     </ul>
                   </div>
-                  
+
                   <div class="ml-4">
-                    <div class="bg-white rounded-lg border border-gray-200 p-2 w-20 h-20 flex flex-col items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-green-500">
-                        <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                    <div
+                      class="bg-white rounded-lg border border-gray-200 p-2 w-20 h-20 flex flex-col items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="h-6 w-6 text-green-500"
+                      >
+                        <rect
+                          width="18"
+                          height="18"
+                          x="3"
+                          y="4"
+                          rx="2"
+                          ry="2"
+                        ></rect>
                         <line x1="16" x2="16" y1="2" y2="6"></line>
                         <line x1="8" x2="8" y1="2" y2="6"></line>
                         <line x1="3" x2="21" y1="10" y2="10"></line>
                       </svg>
-                      <div class="text-xs text-center mt-1 text-gray-600">Service History</div>
+                      <div class="text-xs text-center mt-1 text-gray-600">
+                        Service History
+                      </div>
                     </div>
                   </div>
                 </div>
-                
-                <div 
+
+                <div
                   class="flex items-center justify-center cursor-pointer text-workshop-blue mt-2"
                   id="workshop-history-toggle"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" id="history-chevron-down" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="history-chevron-down"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5"
+                  >
                     <path d="m6 9 6 6 6-6"></path>
                   </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" id="history-chevron-up" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="history-chevron-up"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="h-5 w-5 hidden"
+                  >
                     <path d="m18 15-6-6-6 6"></path>
                   </svg>
                 </div>
               </div>
-              
-              <div id="workshop-history-details" class="bg-white p-4 border-t border-gray-200 animate-fade-in hidden">
-                <p class="text-sm text-gray-700">Additional details about the workshop history...</p>
+
+              <div
+                id="workshop-history-details"
+                class="bg-white p-4 border-t border-gray-200 animate-fade-in hidden"
+              >
+                <p class="text-sm text-gray-700">
+                  Additional details about the workshop history...
+                </p>
               </div>
             </div>
           </div>
@@ -292,67 +475,92 @@
     <footer class="py-8 bg-white">
       <div class="max-w-7xl mx-auto px-4">
         <div class="mb-6">
-          <p class="text-gray-600">Providing accurate and reliable diagnostic services for your Car.</p>
-          <p class="text-gray-600">📍 [Ariana Zoghra] | 📞 [55555555] </p>
-          <p> ✉️ [DiagExpress@DiagExpress.com]</p>
+          <p class="text-gray-600">
+            Providing accurate and reliable diagnostic services for your Car.
+          </p>
+          <p class="text-gray-600">📍 [Ariana Zoghra] | 📞 [55555555]</p>
+          <p>✉️ [DiagExpress@DiagExpress.com]</p>
         </div>
         <div class="flex flex-wrap justify-between items-center">
           <div class="space-x-4">
-            <a href="#" class="text-gray-600">  🔒 Privacy Policy</a>
+            <a href="#" class="text-gray-600"> 🔒 Privacy Policy</a>
             <span class="text-gray-400">|</span>
             <a href="#" class="text-gray-600"> 📄 Terms & Conditions</a>
             <span class="text-gray-400">|</span>
-            <a href="#" class="text-gray-600">  📧 Contact Us</a>
+            <a href="#" class="text-gray-600"> 📧 Contact Us</a>
           </div>
           <div class="flex items-center gap-4 mt-4 md:mt-0">
-            <a href="#" class="rounded-full border-2 border-black-500d bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+            <a
+              href="#"
+              class="rounded-full border-2 border-black-500d bg-rose-50 text-black px-6 py-2 flex items-center gap-2"
+            >
               <span>
-                <img src="../public/images/apple.png" class="inline"> Apple store
+                <img src="../public/images/apple.png" class="inline" /> Apple
+                store
               </span>
             </a>
-            <a href="#" class="rounded-full  border-2 border-indigo-500 bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+            <a
+              href="#"
+              class="rounded-full border-2 border-indigo-500 bg-rose-50 text-black px-6 py-2 flex items-center gap-2"
+            >
               <button>
-                <img src="../public/images/googleplay.png" class="inline"> Google play
+                <img src="../public/images/googleplay.png" class="inline" />
+                Google play
               </button>
             </a>
           </div>
         </div>
         <div class="flex justify-between items-center">
-          <div class="mt-6 text-gray-500">© DiagExpress 2025 . All Rights Reserved.</div>
+          <div class="mt-6 text-gray-500">
+            © DiagExpress 2025 . All Rights Reserved.
+          </div>
           <div>
-            <img class="inline-block mx-2" src="../public/images/fb.png">
-            <img class="inline-block mx-2" src="../public/images/instagram.png">
-            <img class="inline-block mx-2" src="../public/images/x.png">
+            <img class="inline-block mx-2" src="../public/images/fb.png" />
+            <img
+              class="inline-block mx-2"
+              src="../public/images/instagram.png"
+            />
+            <img class="inline-block mx-2" src="../public/images/x.png" />
           </div>
         </div>
       </div>
     </footer>
     <script>
       // Toggle Workshop Progress Details
-      document.getElementById('workshop-progress-toggle').addEventListener('click', function() {
-        const detailsElement = document.getElementById('workshop-progress-details');
-        const chevronDown = document.getElementById('chevron-down');
-        const chevronUp = document.getElementById('chevron-up');
-        
-        detailsElement.classList.toggle('hidden');
-        chevronDown.classList.toggle('hidden');
-        chevronUp.classList.toggle('hidden');
-      });
-      
+      document
+        .getElementById("workshop-progress-toggle")
+        .addEventListener("click", function () {
+          const detailsElement = document.getElementById(
+            "workshop-progress-details"
+          );
+          const chevronDown = document.getElementById("chevron-down");
+          const chevronUp = document.getElementById("chevron-up");
+
+          detailsElement.classList.toggle("hidden");
+          chevronDown.classList.toggle("hidden");
+          chevronUp.classList.toggle("hidden");
+        });
+
       // Toggle Workshop History Details
-      document.getElementById('workshop-history-toggle').addEventListener('click', function() {
-        const detailsElement = document.getElementById('workshop-history-details');
-        const chevronDown = document.getElementById('history-chevron-down');
-        const chevronUp = document.getElementById('history-chevron-up');
-        
-        detailsElement.classList.toggle('hidden');
-        chevronDown.classList.toggle('hidden');
-        chevronUp.classList.toggle('hidden');
-      });
-      
+      document
+        .getElementById("workshop-history-toggle")
+        .addEventListener("click", function () {
+          const detailsElement = document.getElementById(
+            "workshop-history-details"
+          );
+          const chevronDown = document.getElementById("history-chevron-down");
+          const chevronUp = document.getElementById("history-chevron-up");
+
+          detailsElement.classList.toggle("hidden");
+          chevronDown.classList.toggle("hidden");
+          chevronUp.classList.toggle("hidden");
+        });
+
       // Add animation delay to elements with animation
-      document.addEventListener('DOMContentLoaded', function() {
-        const elements = document.querySelectorAll('.animate-fade-up, .animate-fade-in');
+      document.addEventListener("DOMContentLoaded", function () {
+        const elements = document.querySelectorAll(
+          ".animate-fade-up, .animate-fade-in"
+        );
         elements.forEach((el, index) => {
           if (!el.style.animationDelay) {
             el.style.animationDelay = `${index * 100}ms`;
@@ -361,18 +569,15 @@
       });
     </script>
 
-<script>
-  
-    document.addEventListener('DOMContentLoaded', function() {
-                const menuToggle = document.getElementById('menu-toggle');
-                const mobileMenu = document.getElementById('mobile-menu');
-     
-     
-                menuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            });
-    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
 
+        menuToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
   </body>
 </html>
