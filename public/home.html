@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiagExpress - Service Automobile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body class="font-Montserrat font-bold">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-6 py-4 bg-white font-bold ">
+        <div class="flex items-center">
+            <img src="./images/main-logo.png" alt="DiagExpress" class="h-10">
+        </div>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#" class="text-gray-700 hover:text-primary">Accueil</a>
+            <a href="#" class="text-gray-700 hover:text-primary">Services</a>
+            <a href="#" class="text-gray-700 hover:text-primary">WORKSHOPS</a>
+            <a href="#" class="text-gray-700 hover:text-primary">Blog</a>
+        </nav>
+        <button class="bg-primary text-white px-6 py-2 rounded-md hover:bg-secondary transition">
+            Get Started
+        </button>
+    </header>
+
+
+    <section class="relative h-[500px] bg-cover bg-center" style="background-image: url('./images/background.png') ">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+            <div class="bg-white/90 p-6 rounded-lg w-full max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Location" class="w-full pl-10 pr-3 py-2 border rounded-md" value="Ariana">
+                        <span class="absolute left-3 top-2.5">📍</span>
+                    </div>
+                    <div class="relative">
+                        <input type="date" class="w-full pl-10 pr-3 py-2 border rounded-md" value="2020-10-20">
+                        <span class="absolute left-3 top-2.5">📅</span>
+                    </div>
+                    <div class="relative">
+                        <input type="text" placeholder="Model" class="w-full pl-10 pr-3 py-2 border rounded-md" value="BMW">
+                        <span class="absolute left-3 top-2.5">🚗</span>
+                    </div>
+                    <button class="bg-primary text-white py-2 px-4 rounded-md hover:bg-secondary transition">
+                        Find service
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="py-16 bg-white text-center border-2 border-b-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class=" mb-8 flex justify-center">
+                <h2 class="text-3xl font-bold ">OUR SERVICES</h2>
+                <div class="text-2xl justify-self-end ">➡️</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-rose-50 p-4 rounded-lg">
+                    <img src="./images/service.png" alt="Service" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-semibold">Engine oil analysis</h3>
+                </div>
+                <div class="bg-rose-50 p-4 rounded-lg">
+                    <img src="./images/service.png" alt="Service" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-semibold">Coolant testing</h3>
+                </div>
+                <div class="bg-rose-50 p-4 rounded-lg">
+                    <img src="./images/service.png" alt="Service" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-semibold">Brake fluid check</h3>
+                </div>
+                <div class="bg-rose-50 p-4 rounded-lg">
+                    <img src="./images/service.png" alt="Service" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h3 class="font-semibold">Engine power testing</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section class="py-16 bg-gray-50 border-2 border-b-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-center items-center mb-8">
+                <h2 class="text-3xl font-bold">OUR WORKSHOPS</h2>
+                <div class="text-2xl">➡️</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-rose-50 p-4 rounded-lg">
+                    <img src="./images/service.png" alt="Workshop" class="w-full aspect-square object-contain">
+                </div>
+                <div class="bg-rose-50 p-4 rounded-lg">
+                    <img src="./images/service.png" alt="Workshop" class="w-full aspect-square object-contain">
+                </div>
+                <div class="bg-rose-50 p-4 rounded-lg">
+                    <img src="./images/service.png" alt="Workshop" class="w-full aspect-square object-contain">
+                </div>
+                <div class="bg-rose-50 p-4 rounded-lg">
+                    <img src="./images/service.png" alt="Workshop" class="w-full aspect-square object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-2 border-b-black">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">HOW IT WORKS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-8">
+                    <div class="bg-rose-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Browse and select</h3>
+                        <p class="text-gray-600">Explore a wide range of services tailored to your car's needs.</p>
+                    </div>
+                    <div class="bg-rose-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Book and confirm</h3>
+                        <p class="text-gray-600">Easily schedule your service and receive instant confirmation—no hassle, no delays.</p>
+                    </div>
+                    <div class="bg-rose-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2">Enjoy your service</h3>
+                        <p class="text-gray-600">Relax while professionals take care of your car. Quality and satisfaction guaranteed!</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="./images/howItWork.png" alt="Mechanic" class="w-full h-full object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white-50 border-2 border-b-black">
+        <div class="max-w-lg mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Customer feedback</h2>
+            <div class="bg-rose-50 p-8 rounded-lg w-full mx-auto">
+                <div class="flex items-start gap-6 justify-center">
+                    <img src="./images/temoinage.png" alt="Customer" class="w-16 h-16 rounded-xl">
+                    <blockquote class="">
+                        <p class="text-gray-700 mb-4 ">
+                            "I was skeptical at first, but this app made finding a car service super simple.<br>
+                            The reviews and ratings helped me make a confident choice. Fantastic!"
+                        </p>
+                    </blockquote>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Footer -->
+    <footer class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="mb-6">
+                <p class="text-gray-600">Providing accurate and reliable diagnostic services for your Car.</p>
+                <p class="text-gray-600">📍 [Ariana Zoghra] | 📞 [55555555] </p>
+                <p> ✉️ [DiagExpress@DiagExpress.com]</p>
+            </div>
+            <div class="flex flex-wrap justify-between items-center">
+                <div class="space-x-4">
+                    <a href="#" class="text-gray-600">  🔒 Privacy Policy</a>
+                    <span class="text-gray-400">|</span>
+                    <a href="#" class="text-gray-600"> 📄 Terms & Conditions</a>
+                    <span class="text-gray-400">|</span>
+                    <a href="#" class="text-gray-600">  📧 Contact Us</a>
+                </div>
+                <div class="flex items-center gap-4 mt-4 md:mt-0">
+                    <a href="#" class=" rounded-full border-2 border-black-500d bg-rose-50 text-black px-6 py-2 flex items-center gap-2">
+                        <span >
+                            <img src="./images/apple.png" class="inline">
+                            Apple store</span>
+                    </a>
+                    <a href="#" class=" rounded-full  border-2 border-indigo-500   bg-rose-50 text-black px-6 py-2  flex items-center gap-2">
+                        <button>
+                            <img src="./images/googleplay.png" class="inline">
+                            Google play</button>
+                    </a>
+                </div>
+              
+            </div>
+            <div class="flex justify-between items-center">
+                <div class="mt-6 text-gray-500">
+                    © DiagExpress 2025 . All Rights Reserved.
+                </div>
+                <div >
+                    <img class="inline-block mx-10" src="./images/fb.png">
+                    <img class="inline-block mx-10" src="./images/instagram.png">
+                    <img class="inline-block mx-60" src="./images/x.png">
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    
+</body>
+</html>
